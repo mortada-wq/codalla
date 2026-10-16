@@ -1,0 +1,287 @@
+/* Codalla UI - Global Styles inspired by modern agent interfaces */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap');
+
+/* CSS Custom Properties for dynamic theming */
+:root {
+  /* Light theme (default) */
+  --codalla-color-neutral-50: rgb(249, 250, 251);
+  --codalla-color-neutral-100: rgb(235, 238, 242);
+  --codalla-color-neutral-150: rgb(233, 236, 242);
+  --codalla-color-neutral-200: rgb(225, 229, 238);
+  --codalla-color-neutral-300: rgb(207, 211, 214);
+  --codalla-color-neutral-400: rgb(173, 178, 184);
+  --codalla-color-neutral-500: rgb(151, 157, 166);
+  --codalla-color-neutral-600: rgb(129, 133, 140);
+  --codalla-color-neutral-700: rgb(97, 102, 107);
+  --codalla-color-neutral-750: rgb(67, 69, 74);
+  --codalla-color-neutral-800: rgb(53, 54, 56);
+  --codalla-color-neutral-850: rgb(44, 44, 46);
+  --codalla-color-neutral-900: rgb(27, 27, 28);
+  --codalla-color-neutral-950: rgb(21, 21, 23);
+  --codalla-color-neutral-1000: rgb(15, 17, 21);
+
+  /* Blue accents */
+  --codalla-color-blue-50: rgb(239, 246, 255);
+  --codalla-color-blue-100: rgb(219, 234, 254);
+  --codalla-color-blue-500: rgb(59, 130, 246);
+  --codalla-color-blue-600: rgb(37, 99, 235);
+  --codalla-color-blue-800: rgb(30, 64, 175);
+  --codalla-color-blue-900: rgb(14, 48, 116);
+  --codalla-color-blue-950: rgb(23, 37, 84);
+
+  /* Background aliases */
+  --codalla-bg-base: var(--codalla-color-neutral-50);
+  --codalla-bg-layer-1: var(--codalla-color-neutral-50);
+  --codalla-bg-layer-2: var(--codalla-color-neutral-100);
+  --codalla-bg-layer-3: var(--codalla-color-neutral-150);
+
+  /* Text aliases */
+  --codalla-text-primary: var(--codalla-color-neutral-1000);
+  --codalla-text-secondary: var(--codalla-color-neutral-700);
+  --codalla-text-tertiary: var(--codalla-color-neutral-600);
+  --codalla-text-dimmed: var(--codalla-color-neutral-500);
+
+  /* Border aliases */
+  --codalla-border-l1: rgba(0, 0, 0, 0.04);
+  --codalla-border-l2: rgba(0, 0, 0, 0.1);
+  --codalla-border-l3: rgba(0, 0, 0, 0.12);
+
+  /* Focus ring */
+  --codalla-focus-ring-color: var(--codalla-color-blue-500);
+  --codalla-focus-ring-width: 2px;
+
+  /* Semantic colors */
+  --codalla-color-success: rgb(34, 197, 94);
+  --codalla-color-warning: rgb(245, 158, 11);
+  --codalla-color-error: rgb(239, 68, 68);
+
+  /* Typography */
+  --codalla-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --codalla-font-mono: 'JetBrains Mono', 'Fira Code', Monaco, 'Cascadia Code', monospace;
+
+  /* Spacing scale */
+  --codalla-space-1: 0.25rem;
+  --codalla-space-2: 0.5rem;
+  --codalla-space-3: 0.75rem;
+  --codalla-space-4: 1rem;
+  --codalla-space-6: 1.5rem;
+  --codalla-space-8: 2rem;
+
+  /* Border radius */
+  --codalla-radius-sm: 0.25rem;
+  --codalla-radius-md: 0.375rem;
+  --codalla-radius-lg: 0.5rem;
+  --codalla-radius-xl: 0.75rem;
+
+  /* Shadows */
+  --codalla-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --codalla-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+
+  /* Animation */
+  --codalla-duration-fast: 150ms;
+  --codalla-duration-normal: 300ms;
+}
+
+/* Dark theme variables */
+[data-theme="dark"] {
+  --codalla-color-neutral-50: rgb(255, 255, 255);
+  --codalla-color-neutral-100: rgb(235, 238, 242);
+  --codalla-color-neutral-900: rgb(27, 27, 28);
+  --codalla-color-neutral-950: rgb(28, 35, 45); /* Blue-undertoned dark */
+  --codalla-color-neutral-1000: rgb(15, 17, 21);
+
+  /* Backgrounds for dark mode */
+  --codalla-bg-base: var(--codalla-color-neutral-950);
+  --codalla-bg-layer-1: var(--codalla-color-neutral-900);
+  --codalla-bg-layer-2: var(--codalla-color-neutral-850);
+  --codalla-bg-layer-3: var(--codalla-color-neutral-800);
+
+  /* Text for dark mode */
+  --codalla-text-primary: var(--codalla-color-neutral-50);
+  --codalla-text-secondary: var(--codalla-color-neutral-300);
+  --codalla-text-tertiary: var(--codalla-color-neutral-400);
+  --codalla-text-dimmed: var(--codalla-color-neutral-500);
+
+  /* Borders for dark mode */
+  --codalla-border-l1: rgba(255, 255, 255, 0.06);
+  --codalla-border-l2: rgba(255, 255, 255, 0.12);
+  --codalla-border-l3: rgba(255, 255, 255, 0.16);
+
+  /* Focus ring for dark mode */
+  --codalla-focus-ring-color: var(--codalla-color-blue-100);
+}
+
+/* Base application styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--codalla-font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+body {
+  margin: 0;
+  background-color: var(--codalla-bg-base);
+  color: var(--codalla-text-primary);
+  transition: background-color var(--codalla-duration-normal) var(--codalla-ease),
+              color var(--codalla-duration-normal) var(--codalla-ease);
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: var(--codalla-focus-ring-width) solid var(--codalla-focus-ring-color);
+  outline-offset: 2px;
+}
+
+/* Focus for pointer interactions */
+[data-input-modality="pointer"] body :focus-visible:not(:read-write) {
+  outline-color: transparent;
+}
+
+/* Component base styles */
+.codalla-card {
+  background-color: var(--codalla-bg-layer-1);
+  border: 1px solid var(--codalla-border-l2);
+  border-radius: var(--codalla-radius-lg);
+  padding: var(--codalla-space-6);
+  box-shadow: var(--codalla-shadow-sm);
+  transition: all var(--codalla-duration-normal) var(--codalla-ease);
+}
+
+.codalla-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--codalla-space-2);
+  padding: var(--codalla-space-2) var(--codalla-space-4);
+  border: 1px solid transparent;
+  border-radius: var(--codalla-radius-md);
+  font-family: var(--codalla-font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  cursor: pointer;
+  transition: all var(--codalla-duration-fast) var(--codalla-ease);
+  text-decoration: none;
+  user-select: none;
+}
+
+.codalla-button:focus-visible {
+  outline: var(--codalla-focus-ring-width) solid var(--codalla-focus-ring-color);
+  outline-offset: 2px;
+}
+
+/* Button variants */
+.codalla-button--primary {
+  background-color: var(--codalla-color-blue-500);
+  color: white;
+}
+
+.codalla-button--primary:hover {
+  background-color: var(--codalla-color-blue-600);
+}
+
+.codalla-button--secondary {
+  background-color: transparent;
+  color: var(--codalla-text-primary);
+  border-color: var(--codalla-border-l2);
+}
+
+.codalla-button--secondary:hover {
+  background-color: var(--codalla-bg-layer-2);
+}
+
+/* Input styles */
+.codalla-input {
+  display: block;
+  width: 100%;
+  padding: var(--codalla-space-2) var(--codalla-space-3);
+  background-color: var(--codalla-bg-layer-1);
+  border: 1px solid var(--codalla-border-l2);
+  border-radius: var(--codalla-radius-md);
+  color: var(--codalla-text-primary);
+  font-family: var(--codalla-font-sans);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  transition: all var(--codalla-duration-fast) var(--codalla-ease);
+}
+
+.codalla-input:focus {
+  outline: none;
+  border-color: var(--codalla-color-blue-500);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.codalla-input::placeholder {
+  color: var(--codalla-text-dimmed);
+}
+
+/* Typography classes */
+.codalla-text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.codalla-text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.codalla-text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.codalla-text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.codalla-text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+/* Utility classes */
+.codalla-flex {
+  display: flex;
+}
+
+.codalla-flex-col {
+  flex-direction: column;
+}
+
+.codalla-items-center {
+  align-items: center;
+}
+
+.codalla-justify-between {
+  justify-content: space-between;
+}
+
+.codalla-gap-2 {
+  gap: var(--codalla-space-2);
+}
+
+.codalla-gap-4 {
+  gap: var(--codalla-space-4);
+}
+
+.codalla-gap-6 {
+  gap: var(--codalla-space-6);
+}
+
+.codalla-p-4 {
+  padding: var(--codalla-space-4);
+}
+
+.codalla-p-6 {
+  padding: var(--codalla-space-6);
+}
+
+.codalla-mb-4 {
+  margin-bottom: var(--codalla-space-4);
+}

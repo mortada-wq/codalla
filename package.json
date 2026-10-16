@@ -1,0 +1,53 @@
+{
+  "name": "codalla-ui",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "A modern UI library inspired by the elegant design patterns of advanced agent interfaces",
+  "main": "lib/index.js",
+  "module": "lib/index.esm.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib/**/*",
+    "dist/**/*"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "vite",
+    "build:lib": "rollup -c",
+    "dev:lib": "rollup -c --watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src --ext .js,.ts,.tsx",
+    "demo": "vite --config demo/vite.config.ts"
+  },
+  "dependencies": {
+    "clsx": "^2.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tslib": "^2.6.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.0",
+    "@rollup/plugin-typescript": "^11.1.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@vitejs/plugin-react": "^4.2.0",
+    "eslint": "^8.0.0",
+    "rollup": "^3.0.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "typescript": "^5.0.0",
+    "vite": "^5.0.0"
+  },
+  "keywords": [
+    "ui",
+    "react",
+    "design-system",
+    "typescript",
+    "modern-interface",
+    "agent-ui"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}
